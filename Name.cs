@@ -35,3 +35,31 @@ catch
 
 
 Label3. Text ="Your Email is "+Request.QueryString["emailadd"].ToString() +", Kindly Check Your Mail Inbox For Activation Code":
+
+
+
+protected void Button1_Click(object sender, EventArgs e)
+{
+    String mycon = "Data Source=Hb-PC\\SQLEXPRESS; Initial Catalog-SubscriberDatabase; Integrated Security=True"; String myquery = "Select from EmailDetails where emailaddress='" + Request.QueryString["emailadd"] + "'"; SqlConnection con= new SqlConnection (mycon);
+    SqlCommand cmd = new SqlCommand();
+    cmd.CommandText = myquery;
+    cmd.Connection = con;
+    SqlDataAdapter da = new SqlDataAdapter();
+    da.SelectCommand = cmd;
+    DataSet ds = new DataSet();
+    da.Fill(ds);
+    if (ds.Tables[0].Rows.Count > 0)
+    String activationcode;
+    activationcode= ds.Tables[0].Rows[0]["activationcode"].ToString();
+    {
+
+    if (activationcode == TextBox1.Text)
+    {
+      changestatus();
+      Label4.Text = "Your Email Has Been Verified Successfully";
+    }
+    else
+    {
+      Label4. Text "You Have Entered Invalid Activation Code, Kindly Check Your Mail Inbox";
+    }
+}
