@@ -33,11 +33,7 @@ catch
   throw;
 }
 
-
 Label3. Text ="Your Email is "+Request.QueryString["emailadd"].ToString() +", Kindly Check Your Mail Inbox For Activation Code":
-
-
-
 protected void Button1_Click(object sender, EventArgs e)
 {
     String mycon = "Data Source=Hb-PC\\SQLEXPRESS; Initial Catalog-SubscriberDatabase; Integrated Security=True"; String myquery = "Select from EmailDetails where emailaddress='" + Request.QueryString["emailadd"] + "'"; SqlConnection con= new SqlConnection (mycon);
@@ -63,3 +59,16 @@ protected void Button1_Click(object sender, EventArgs e)
       Label4. Text "You Have Entered Invalid Activation Code, Kindly Check Your Mail Inbox";
     }
 }
+  
+  private void changestatus()
+
+(
+
+String mycon= "Data Source=HP-PC\\SQLEXPRESS; Initial Catalog-SubscriberDatabase; Integrated Security-True"; 
+String updatedata= "Update emaildetails set status-'Verified' where emailaddress-+ Request.QueryString["emailadd"] + "*"; 
+SqlConnection con= new SqlConnection (mycon);
+con.Open();
+SqlCommand cmd = new SqlCommand();
+cmd.CommandText = updatedata;
+cmd.Connection con;
+cmd.ExecuteNonQuery();
