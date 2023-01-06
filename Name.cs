@@ -32,3 +32,6 @@ catch
 {
   throw;
 }
+
+
+Label3. Text ="Your Email is "+Request.QueryString["emailadd"].ToString() +", Kindly Check Your Mail Inbox For Activation Code":
