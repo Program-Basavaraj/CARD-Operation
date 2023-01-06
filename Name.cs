@@ -72,3 +72,6 @@ SqlCommand cmd = new SqlCommand();
 cmd.CommandText = updatedata;
 cmd.Connection con;
 cmd.ExecuteNonQuery();
+
+   
+    1bo18cs013.basavarajbd@brindavancollege.com
