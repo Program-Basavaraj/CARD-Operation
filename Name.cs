@@ -73,3 +73,78 @@ cmd.CommandText = updatedata;
 cmd.Connection con;
 cmd.ExecuteNonQuery();
 
+//wygfuweygfwuefgwuegfwuyg uygueryfgerygfu yeruifgeriu gierug ierugieurg-----------------------------------------------------------------
+    
+    Random rand = new Random();
+        int otp;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            otp = rand.Next(10000, 100000);
+            if(fullnametxb.Text!="")
+            {
+                if (emailTxb.Text.Contains("@" + "gmail.com"))
+                {
+                    try
+                    {
+
+                        MailMessage msg = new MailMessage();
+                        msg.From = new MailAddress("1bo18cs013.basavarajbd@brindavancollege.com");
+                        msg.To.Add(emailTxb.Text);
+                        msg.Subject = "OTP Code";
+                        msg.Body = otp.ToString();
+
+                        SmtpClient smt = new SmtpClient();
+                        smt.Host = "smtp.gmail.com";
+                        System.Net.NetworkCredential ntcd = new NetworkCredential();
+                        ntcd.UserName = "1bo18cs013.basavarajbd@brindavancollege.com";
+                        ntcd.Password = "UIYguygfyu";
+                        smt.Credentials = ntcd;
+                        smt.EnableSsl = true;
+                        smt.Port = 587;
+                        smt.Send(msg);
+
+                        MessageBox.Show("Your Mail is sended");
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter Valid Email ID..");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Enter the Name Please.");
+            }
+            
+        }
+    ....................................======================================+++++++++++++++++=
+    
+    if(emailTxb.Text!="" && fullnametxb.Text!="")
+            {
+                if (otpTxb.Text != "")
+                {
+                    if (otp.ToString().Equals(otpTxb.Text))
+                    {
+                        MessageBox.Show("Registerd");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect OTP");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter the OTP..");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Enter the Name & Email To Verify with OTP To Register..");
+            }
+        
